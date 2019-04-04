@@ -5,19 +5,23 @@ int  encrypt (char c, int k );
 int  decrypt (char c, int k );
 int main ()
 {
-		char message[14] = "Hello MATTHEW";
-		char decryptedMessage [14];
-		char cipher [14], c;
-		int k = 0;
+		char message[14] = "HELLO MATTHEW";
+		int length = strlen(message);
+		char decryptedMessage [length];
+		char cipher [length], c;
+		int k = 1;
 		
-		for (int i = 0; i <strlen(message); i++)
+		printf("%d\n", length);
+		
+		for (int i = 0; i <=length; i++)
 		{
 			c = message[i];
 			
 			cipher[i] = encrypt(c,k);
 		}
-		
-		for (int i = 0; i < strlen(cipher); i++)
+		//length = strlen(cipher);
+		printf("%d\n", length);
+		for (int i = 0; i <= length; i++)
 		{
 			
 			c = cipher[i];
@@ -55,7 +59,7 @@ int encrypt (char c, int k)
 }
 int decrypt (char c, int k) // function to decrypt the cipher, requires character to be deciphered and the key value.
 {
-	if (c == '\0' || c == ' ' )			// check if it is a space, if it is send it back
+	if (c == '\0' || c == ' ' )			// check if it is a space or null, if it is send it back
 	{
 		return c;				
 	}
