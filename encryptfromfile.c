@@ -1,17 +1,32 @@
 #include <stdio.h>
 #include <string.h>
+#include "rotation.h"
 
-int  encrypt (char c, int k ); 
-int  decrypt (char c, int k );
+/*int  encrypt (char c, int k ); 
+int  decrypt (char c, int k );*/
 int main ()
-{
-		char message[30] = "HELLO my name is matthew";
-		int length = strlen(message);
+{		// Read message into character array.
+		char message[100];
+		char error[20] = "No Such file exists";
+		FILE *file;
+		file = fopen("message.txt" ,"r");
+	
+		if (file == NULL) 		// check if file is loaded (i.e exists)
+		{
+			printf("%s", error); // pritn error message 
+			return 0;				// exit
+	
+		}
+	
+		fgets(message,100, file);				//read file and write file content to message char array
+		
+		//begin processing message array for encrytption
+		
+		int length = strlen(message);			// calculate length of message array
+		printf("%d\n", length);
 		char decryptedMessage [length];
 		char cipher [length], c;
 		int k = 7;
-		
-		printf("%d\n", length);
 		
 		for (int i = 0; i <=length; i++)		//loop for the length of the string
 		{
@@ -25,12 +40,13 @@ int main ()
 			c = cipher[i];
 			decryptedMessage[i] = decrypt(c,k);		
 		}
-		printf("Original message: %s\n", message);
-		printf("Encrypted text: %s\n", cipher);
-		printf("Decrypted message: %s\n", decryptedMessage);
+		printf("Original message: %s\n", message);  	// print the Original message 
+		printf("Encrypted text: %s\n", cipher);			// print the encrypted message
+		printf("Decrypted message: %s\n", decryptedMessage);	// print the decrytpted message (now in capitals)
 return 0;
 }
-
+/*
+// functions to calculate encryption and decrytpion
 int encrypt (char c, int k)
 {
 	if (c >= 97 && c<= 122)						// check for lower case letters
@@ -82,3 +98,4 @@ int decrypt (char c, int k) // function to decrypt the cipher, requires characte
 	
 	return c+65;			//return the character to the correct ASCI value and send back to main
 }
+*/

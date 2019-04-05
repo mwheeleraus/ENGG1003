@@ -1,36 +1,9 @@
-#include <stdio.h>
-#include <string.h>
+/* Encryption and decryption functions for Assisgnment 1*/
 
 int  encrypt (char c, int k ); 
 int  decrypt (char c, int k );
-int main ()
-{
-		char message[30] = "HELLO my name is matthew";
-		int length = strlen(message);
-		char decryptedMessage [length];
-		char cipher [length], c;
-		int k = 7;
-		
-		printf("%d\n", length);
-		
-		for (int i = 0; i <=length; i++)		//loop for the length of the string
-		{
-			c = message[i];						// set char c to value of current index of message string
-			cipher[i] = encrypt(c,k);			// set current cipher index to encrytped value by calling encrytp function
-		}
-		//length = strlen(cipher);
-		printf("%d\n", length);
-		for (int i = 0; i <= length; i++)
-		{
-			c = cipher[i];
-			decryptedMessage[i] = decrypt(c,k);		
-		}
-		printf("Original message: %s\n", message);
-		printf("Encrypted text: %s\n", cipher);
-		printf("Decrypted message: %s\n", decryptedMessage);
-return 0;
-}
 
+// functions to calculate encryption and decrytpion
 int encrypt (char c, int k)
 {
 	if (c >= 97 && c<= 122)						// check for lower case letters
@@ -82,3 +55,4 @@ int decrypt (char c, int k) // function to decrypt the cipher, requires characte
 	
 	return c+65;			//return the character to the correct ASCI value and send back to main
 }
+
