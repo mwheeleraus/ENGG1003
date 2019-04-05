@@ -1,4 +1,4 @@
-/* Encryption and decryption functions for Assisgnment 1*/
+/* Encryption and decryption functions for Assignment 1*/
 
 int  encrypt (char c, int k ); 
 int  decrypt (char c, int k );
