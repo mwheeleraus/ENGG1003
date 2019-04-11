@@ -4,60 +4,64 @@
 int main()
 {
 	int i;
-	char c;
-	char alphabet[26]  ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char cipherTable[27] = "QWERTYABCDFGHIJKLMNOPSUVWXZ";
+	char ec,dc;
+	char alphabet[27]  ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char cipherTable[27] = "QWERTYUIOPASDFGHJKLZXCVBNM";
 	char message[100] = "matthew is a total legend!";
 	int length = strlen(message);
 	char cipherMessage[100];
 	char decryptMessage[100];
 	//printf("%d", messageLength);
-	
+	printf("Original text: %s\n", message);
 	
 	//substitution encryption
 	
 	for (i = 0; i <=length; i++)
 	{	
-		c = message[i];
-		if (c >= 97 && c<= 122)						// check for lower case letters
+		ec = message[i];
+		if (ec >= 97 && ec<= 122)						// check for lower case letters
 		{
-		c -=32;											// change to upper case by subtracting 32
+		ec -=32;											// change to upper case by subtracting 32
 		}	
-		if (!(c >= 97 && c<= 122) && !(c>=65 && c<= 90)) //check if it is anything other than a letter
+		if (!(ec >= 97 && ec<= 122) && !(ec>=65 && ec<= 90)) //check if it is anything other than a letter
 		{
-		cipherMessage[i] = c;							//write the non alphabet character into cipherMessage.
+			cipherMessage[i] = ec;							//write the non alphabet character into cipherMessage.
 		}
-		c = c-65;
-		if (c >= 0 && c <= 25)							// write the applicable value from cipher table to the message.
+		ec -= 65;
+		if (ec >= 0 && ec <= 25)							// write the applicable value from cipher table to the message.
 		{
-			cipherMessage[i] = cipherTable[c];						// apply encrytpion algorithm as per assessment
+			cipherMessage[i] = cipherTable[ec];						// apply encrytpion algorithm as per assessment
 		}
-	
-		
+		if (i == length)
+		{
+			cipherMessage[i] = '\0';
+			
+		}	
 	}
-	printf("%s\n", cipherMessage);
+	printf("Cipher text: %s\n", cipherMessage);
+	
 	length = strlen(cipherMessage);
-	// substitution decrytption
-		for (i = 0; i <=length; i++)
-	{	
-		c = cipherMessage[i];
-		if (c >= 97 && c<= 122)						// check for lower case letters
-		{
-		c -=32;									// change to upper case by subtracting 32
-		}	
-		if (!(c >= 97 && c<= 122) && !(c>=65 && c<= 90)) //check if it is anything other than a letter
-		{
-		decryptMessage[c] = i;							//write the non alphabet character into cipherMessage.
-		}
-		c = c-65;
-		if (c >= 0 && c <= 25)							// write the applicable value from cipher table to the message.
-		{
-			decryptMessage[c] = cipherMessage[i];						// apply encrytpion algorithm as per assessment
-		}
 	
-		
+	
+	// substitution decrytption
+		for (i = 0; i <=length; i++) //  loop for length of cipher
+	{	
+		dc = cipherMessage[i];
+	
+				// loop for alphabet
+		{
+			
+		if( dc != alphabet[j])	
+		{	
+			continue;	
+		}
+		else if (dc == alphabet[j])
+		{
+			decryptMessage[i] = alphabet[j];
+		}
+		}
 	}
-	printf("%s", decryptMessage);
+	printf("Decrypted text: %s", decryptMessage);
 	
 	return 0;
 }
