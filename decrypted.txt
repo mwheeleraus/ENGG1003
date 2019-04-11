@@ -1,0 +1,3 @@
+Original message: this is the computer speaking.
+Encrypted text: WKLV LV WKH FRPSXWHU VSHDNLQJ.
+Decrypted message: THIS IS THE COMPUTER SPEAKING.
