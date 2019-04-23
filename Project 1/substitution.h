@@ -51,8 +51,9 @@ void subEncrypt()
 			
 		}	
 	}
+	printf("Original text : %s\n", message);
 	printf("Cipher text: %s\n", cipherMessage);					// Print the Encrypred message to console.
-	printf("%d words in message\n", wordCount+1);  
+	//printf("%d words in message\n", wordCount+1);  //no longer used
 	fprintf(file, cipherMessage);
 	fclose(file);
 }	
@@ -101,6 +102,7 @@ void subDecrypt()
 			}	
 		}
 	}
+	printf("Original Text : %s\n", cipherMessage);
 	printf("Decrypted message: %s", decryptMessage);								// print the decrypted messsage to console.
 	fprintf(file, decryptMessage);
 	fclose(file);
