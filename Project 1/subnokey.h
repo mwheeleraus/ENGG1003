@@ -90,7 +90,7 @@ int subNoKey()
 				int tmp2 = lettercounter[1][i];				  //Using temporary variable for storing last value
 				lettercounter[1][i] = lettercounter[1][j];
 				lettercounter[0][i] = lettercounter[0][j]; 
-				lettercounter[1][j] = tmp2;											//replacing value
+				lettercounter[1][j] = tmp2;					 //replacing value
 				lettercounter[0][j] = tmp;					 //storing last value										
 			}  
 			
@@ -117,29 +117,29 @@ int subNoKey()
 
 for (int j= 0; j<26;j++)
 {
-	c = alphabet[j];
+	c = alphabet[j];										// letter to check
 
-	for (int i =0; i<=length; i++)
+	for (int i =0; i<=length; i++)							// loop for length of text
 	{
-		char ec = ciphertext[i];
-		if(ec == c)
+		char ec = ciphertext[i];							// letter in cipher to check
+		if(ec == c)											// check if the are the same
 		{
-			decryptedtext[i] = subset[j];
+			decryptedtext[i] = subset[j];					// write it to char array
 		}
-		if(!( ec >=65 && ec <= 90 || ec >=97 && ec <= 122))
+		if(!( ec >=65 && ec <= 90 || ec >=97 && ec <= 122)) // check for no letter char.
 		{
-			decryptedtext[i] = ciphertext[i];
+			decryptedtext[i] = ciphertext[i];				// write it to array
 		}
-		if (ec == '\0')
+		if (ec == '\0')										// looking for the end of the string, witohut this i got errors.
 		{
 			decryptedtext[i] = ec;
 		}
 	}
 }
-printf("\nDecrypted text: %s", decryptedtext);
-FILE *decrypted;
-decrypted = fopen("subdecrytped.txt", "w");
-fprintf(decrypted,"%s", decryptedtext);
-fclose(decrypted);
+printf("\nDecrypted text: %s", decryptedtext);				// print to console/terminal
+FILE *decrypted;											// new file. 
+decrypted = fopen("subdecrytped.txt", "w");					// open the new file for writing (and create it)
+fprintf(decrypted,"%s", decryptedtext);						// print the char array to the file.
+fclose(decrypted);											// close the file for editing.
 return 0;
 }
