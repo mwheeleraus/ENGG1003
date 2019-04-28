@@ -57,7 +57,7 @@ int main()
 	subNoKey2();
 	break;
 	case 'g':	//sub decryption UNSEEN cipher
-	subnokey2();
+	subNoKey2();
 	break;
 	}
 return 0;

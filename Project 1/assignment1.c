@@ -31,12 +31,12 @@ int main()
 			printf("Program exit");
 			return 0;
 		}
-		else if (c < 'a' || c > 'f')
+		else if (c < 'a' || c > 'g')
 		{
 			printf("Invalid selection, try agin.\n\n");
 		}
 	}
-	while (c < 'a' || c > 'f');
+	while (c < 'a' || c > 'g');
 	
 	switch (c){
 	case 'a':	// encrypt rotaation with key
@@ -58,7 +58,7 @@ int main()
 	subNoKey();
 	break;
 	case 'g':	//sub decryption UNSEEN cipher
-	subnokey2();
+	subNoKey2();
 	break;
 	}
 return 0;
