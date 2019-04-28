@@ -54,9 +54,10 @@ int main()
 	subDecrypt();
 	break;
 	case 'f':	//sub decryption no key/phrase DAY ONE
-	subNoKey();
+	subNoKey2();
 	break;
 	case 'g':	//sub decryption UNSEEN cipher
+	subnokey2();
 	break;
 	}
 return 0;

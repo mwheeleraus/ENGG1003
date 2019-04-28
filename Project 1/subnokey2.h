@@ -4,9 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-int subNoKey();
+int subNoKey2();
 
-int subNoKey()
+int subNoKey2()
 {
 	char ciphertext[2000];
 	char decryptedtext[2000];

@@ -4,6 +4,7 @@
 #include "rotationNoKey.h"
 #include "substitution.h"
 #include "subnokey.h"
+#include "subnokey2.h"
 
 
 int main()
@@ -57,6 +58,7 @@ int main()
 	subNoKey();
 	break;
 	case 'g':	//sub decryption UNSEEN cipher
+	subnokey2();
 	break;
 	}
 return 0;
